@@ -1,0 +1,13 @@
+machine:
+  services:
+    - docker
+
+dependencies:
+  override:
+    - docker info
+    - docker build  -t rahulkrishnanfs/docker-elasticsearch .
+
+test:
+  override:
+    - docker run  -t -p 9200:9200 -p 9300:9300 rahulkrishnanfs/docker-jre ; sleep 5
+    - curl --retry 10 --retry-delay 5 -v http://localhost:9200
