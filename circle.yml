@@ -9,5 +9,5 @@ dependencies:
 
 test:
   override:
-    - docker run  -t -p 9200:9200 -p 9300:9300 rahulkrishnanfs/docker-elasticsearch ; 
+    - docker run  -t -p 9200:9200 -p 9300:9300 rahulkrishnanfs/docker-elasticsearch 
     - curl  http://localhost:9200
